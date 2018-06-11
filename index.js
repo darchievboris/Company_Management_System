@@ -1,16 +1,11 @@
 const express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+require('./services/passport');
 
 var app = express();
 
-app.get('/', (req, res) => {
-  res.send({})
-})
+require('./routes/authRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log('listening at port: ', PORT);
+}); 
