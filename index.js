@@ -4,6 +4,7 @@ require('./services/passport');
 var app = express();
 
 require('./routes/authRoutes')(app);
+
 app.get('/',(req,res)=>{
   res.send({hello:"kostya"})
 })
