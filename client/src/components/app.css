@@ -1,0 +1,101 @@
+.rbc-month-row {
+  -webkit-flex-basis: 10em;
+  -ms-flex-preferred-size: 10em;
+  flex-basis: 10em;
+}
+
+body{
+  background-color: #f2f2f2
+}
+
+#my_calendar{
+  margin: auto;
+  width: 90%;
+  
+}
+
+#my_calendar button {
+  background-color: #2185d0;
+  color: white;
+}
+
+.modal{
+  background-color: white;
+  z-index: 100;
+ 
+}
+
+.ReactModal__Overlay{
+  z-index: 99;
+}
+
+.rbc-calendar{
+  background-color: white;
+  box-shadow: 1px 5px 16px grey;
+  padding: 20px;
+}
+
+.rbc-toolbar{
+  height: 50px;
+  background-color: #cecece;
+  padding: 10px;
+}
+
+.pushable>.pusher {
+  height: 100vh;
+}
+
+.ui.modal>.image.content {
+  display: unset;
+  display: -webkit-box ;
+  display: -ms-box;
+}
+
+input.rw-widget-input.rw-input {
+  border: transparent !important ;  
+  vertical-align: unset !important;
+}
+
+#client_list{
+  padding-left: 10px;
+}
+
+.ui.pointing.label {
+  margin-top: 0px; 
+  margin-bottom: 1em;
+}
+
+/* Phone country input */
+div.rrui__input {
+  display: none;
+}
+
+/* Phone input field */
+input.rrui__input {
+  height: 100%;
+}
+
+/* client list item style */
+.card-content {
+  /* background-color: lightyellow; */
+  background: honeydew !important;
+}
+
+/* search field styles */
+.search-field {
+  padding: 0px 10px 0px 10px !important;
+}
+
+.search-results {
+  text-align: left;
+}
+
+/* Client list styles */
+.client-list {
+  padding-bottom: 25px !important;
+}
+
+.pagination-styles {
+  position: absolute;
+  bottom: 0px;
+}
