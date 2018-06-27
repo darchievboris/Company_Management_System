@@ -16,6 +16,14 @@ import { addClient, editClient } from '../../actions/clientsActions';
 moment.locale('en');
 momentLocalizer();
 
+  const inlineStyle = {
+    modal : {
+      marginTop: '0px !important',
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }
+  };
+
 class AddClientModal extends Component {
   state = {};
 
@@ -235,7 +243,9 @@ class AddClientModal extends Component {
     const { openModal, closeModal } = this.props;
     const { client, error } = this.state;
     return (
-      <Modal open={openModal} onClose={closeModal} closeIcon>
+      <Modal open={openModal} onClose={closeModal} closeIcon 
+      // style={inlineStyle.modal}
+      >
         <Modal.Content image>
           <Modal.Description>
             <Form error onSubmit={this.onSubmit}>
