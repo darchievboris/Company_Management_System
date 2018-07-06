@@ -4,14 +4,10 @@ import PropTypes from 'prop-types';
 
 import Router from '../routers/Router';
 import * as actions from '../actions';
-import { getClients } from '../actions/clientsActions';
-
-import clients from '../utils/events';
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
-    this.props.store.dispatch(getClients(clients));
   }
 
   render() {

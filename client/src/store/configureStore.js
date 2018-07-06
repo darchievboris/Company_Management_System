@@ -28,7 +28,7 @@ export function configureStore() {
         store,
         {
           storage: localForage,
-          blacklist: ['clients', 'auth'],
+          blacklist: ['auth', 'clients'],
         },
         () => resolve(store)
       );

@@ -1,9 +1,9 @@
-import * as clientActions from '../actions/clientsActions';
+import * as clientActions from '../actions/types';
 
 export default function categoriesReducers(state = [], action) {
   switch (action.type) {
-    case clientActions.GET_CLIENTS: {
-      return [...action.clients];
+    case clientActions.FETCH_CLIENTS: {
+      return [...action.payload];
     }
     case clientActions.ADD_CLIENT: {
       return [...state, action.client];

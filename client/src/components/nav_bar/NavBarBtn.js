@@ -24,7 +24,6 @@ class NavBarBtn extends Component {
           <Menu.Item onClick={onToggle} color="blue">
             <Icon name="sidebar" />
           </Menu.Item>
-          <Link to={this.props.auth ? '/clients' : '/'}>CMS</Link>
         </Menu.Menu>
         <Menu.Menu position="right">
           <Menu.Menu position="right">
@@ -36,10 +35,6 @@ class NavBarBtn extends Component {
             </div>
           </Menu.Menu>
           {this.renderContent()}
-          {/* <Menu.Item>
-            <a href="/auth/google">Sign In With Google</a>
-          </Menu.Item> */}
-          <Menu.Item onClick={() => console.log('login')}>Login</Menu.Item>
         </Menu.Menu>
       </Menu>
     );

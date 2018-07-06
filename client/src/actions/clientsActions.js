@@ -1,13 +1,9 @@
-export const GET_CLIENTS = 'GET_CLIENTS';
-export const ADD_CLIENT = 'ADD_CLIENT';
-export const REMOVE_CLIENT = 'REMOVE_CLIENT';
-export const EDIT_CLIENT = 'EDIT_CLIENT';
+import axios from 'axios';
+import { FETCH_CLIENTS, ADD_CLIENT, REMOVE_CLIENT, EDIT_CLIENT } from './types';
 
-export function getClients(clients) {
-  return {
-    type: GET_CLIENTS,
-    clients,
-  };
+export const getClients = () => async dispatch => {
+  const res = await axios.get('api/clients');
+  dispatch({type: FETCH_CLIENTS, payload: res.data})
 }
 
 export function addClient(client) {

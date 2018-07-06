@@ -2,34 +2,44 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ClientSchema = new Schema({
-    googleId: String,
     firstName: {
         type: String,
-        // required: true,
+        required: true,
         minlength: 2,
         trim: true
     },
-    lastName: {
-        type: String,
-        // required: true,
-        minlength: 2,
-        trim: true
-    }, 
+    lastName: String, 
     email: {
         type: String,
-        unique:true,
         trim: true
     },
-    password: {
-        type: String,
-        // required: true,
-        minlength: 6
+    start: String,
+    end: String,
+    jobLength: Number,
+    sameDay: String,
+    wholeDay: Boolean,
+    phone: String,
+    notes: String,
+    addressFrom:{
+        street: String,
+        city: String,
+        state: String,
+        zip: Number,
+        notes: String
     },
-    registered: {
+    addressTo:{
+        street: String,
+        city: String,
+        state: String,
+        zip: Number,
+        notes: String
+    },
+    added: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
+    _user: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
- module.exports = mongoose.model("clients", ClientsSchema);
+ module.exports = mongoose.model("client", ClientSchema);
 
