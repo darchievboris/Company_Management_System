@@ -6,7 +6,7 @@ export default function categoriesReducers(state = [], action) {
       return [...action.payload];
     }
     case clientActions.ADD_CLIENT: {
-      return [...state, action.client];
+      return [...state, action.payload];
     }
     case clientActions.REMOVE_CLIENT: {
       return state.filter(client => client.id !== action.clientID);

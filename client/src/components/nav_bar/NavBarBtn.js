@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Icon, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NavBarSearch from './NavBarSearch';
@@ -17,7 +17,7 @@ class NavBarBtn extends Component {
   }
 
   render() {
-    const { onToggle } = this.props;
+    const { onToggle, auth } = this.props;
     return (
       <Menu icon attached="top" inverted color="teal">
         <Menu.Menu>
@@ -25,6 +25,7 @@ class NavBarBtn extends Component {
             <Icon name="sidebar" />
           </Menu.Item>
         </Menu.Menu>
+        <Menu.Item>{auth ? `Hello,  ${auth.name}` : ''}</Menu.Item>
         <Menu.Menu position="right">
           <Menu.Menu position="right">
             <div className="ui right aligned category search item search-field">

@@ -33,7 +33,6 @@ class AddClientModal extends Component {
 
   componentWillReceiveProps = ({ clientToEdit, newClient, edit }) => {
     if (!edit) {
-      console.log('create');
       this.resetState();
       this.setState(({ client }) => ({
         client: {

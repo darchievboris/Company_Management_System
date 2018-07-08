@@ -43,13 +43,13 @@ class ClientListItem extends Component {
                 {moment(client.start).format('h:mm a')}
               </Card.Meta>
               <Card.Description>
-                {client.addressFrom.city} <Icon name="arrow circle outline right" /> {client.addressTo.city}
+                {client.addressFrom.city} <Icon name="arrow alternate circle right outline" /> {client.addressTo.city}
               </Card.Description>
             </Card.Content>
           </Card>
         </Accordion.Title>
         <Accordion.Content active={activeIndex === index}>
-          <Label basic color="black" pointing>
+          <Label basic pointing>
             <Button
               floated="right"
               size="mini"
