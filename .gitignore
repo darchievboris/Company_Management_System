@@ -61,4 +61,5 @@ typings/
 .next
 
 dev.js 
+package-lock.json
 

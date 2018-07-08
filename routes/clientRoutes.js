@@ -9,7 +9,7 @@ module.exports = app => {
     res.send(clients);
   });
 
-  app.post('api/client', requireLogin, async (req, res) => {
+  app.post('/api/client', requireLogin, async (req, res) => {
     const { 
       firstName, lastName, phone, email, notes, start, end, jobLength, sameDay, wholeDay, addressFrom, addressTo
     } = req.body;
@@ -31,7 +31,8 @@ module.exports = app => {
     })
 
     try{
-      await client.save();
+      const newClient = await client.save();
+      res.send(newClient);
     }catch(err){
       res.status(422).send(err);
     }
