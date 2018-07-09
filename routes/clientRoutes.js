@@ -9,6 +9,17 @@ module.exports = app => {
     res.send(clients);
   });
 
+  app.patch('/api/client', requireLogin, async(req, res) => {
+    console.log("ID", req.body);
+    Client.findByIdAndUpdate(req.body._id, {$set:req.body}, {new: true}, (err, client) => {
+      if (err) {
+        console.log(err);
+        res.send(err)
+      }
+      res.send(client);
+    })
+  })
+
   app.post('/api/client', requireLogin, async (req, res) => {
     const { 
       firstName, lastName, phone, email, notes, start, end, jobLength, sameDay, wholeDay, addressFrom, addressTo

@@ -12,7 +12,7 @@ export default function categoriesReducers(state = [], action) {
       return state.filter(client => client.id !== action.clientID);
     }
     case clientActions.EDIT_CLIENT: {
-      return state.map(client => (client.id === action.client.id ? { ...client, ...action.client } : client));
+      return state.map(client => (client.id === action.payload.id ? { ...client, ...action.payload } : client));
     }
     default:
       return state;

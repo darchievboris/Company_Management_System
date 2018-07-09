@@ -13,7 +13,7 @@ class ClientListItem extends Component {
   };
 
   render() {
-    const { client, index, handleClick, activeIndex, onEditClick, onInfoClick } = this.props;
+    const { client, key, index, handleClick, activeIndex, onEditClick, onInfoClick } = this.props;
     return (
       <div>
         <Accordion.Title index={index} onClick={handleClick}>
@@ -145,4 +145,7 @@ const mapDispatchToProps = dispatch => ({
   editClient: client => dispatch(editClient(client)),
 });
 
-export default connect(undefined, mapDispatchToProps)(ClientListItem);
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(ClientListItem);

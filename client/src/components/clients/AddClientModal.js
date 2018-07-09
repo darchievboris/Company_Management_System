@@ -7,7 +7,6 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import momentLocalizer from 'react-widgets-moment';
-import uniqId from 'uniqid';
 import Phone from 'react-phone-number-input';
 
 import states from '../../utils/states';
@@ -15,14 +14,6 @@ import { addClient, editClient } from '../../actions/clientsActions';
 
 moment.locale('en');
 momentLocalizer();
-
-  const inlineStyle = {
-    modal : {
-      marginTop: '0px !important',
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
-  };
 
 class AddClientModal extends Component {
   state = {};
@@ -37,7 +28,6 @@ class AddClientModal extends Component {
       this.setState(({ client }) => ({
         client: {
           ...client,
-          id: uniqId(),
           start: moment(newClient.start)
             .add(moment.duration(8, 'hours'))
             .toDate(),
@@ -242,8 +232,11 @@ class AddClientModal extends Component {
     const { openModal, closeModal } = this.props;
     const { client, error } = this.state;
     return (
-      <Modal open={openModal} onClose={closeModal} closeIcon 
-      // style={inlineStyle.modal}
+      <Modal
+        open={openModal}
+        onClose={closeModal}
+        closeIcon
+        // style={inlineStyle.modal}
       >
         <Modal.Content image>
           <Modal.Description>
@@ -463,4 +456,7 @@ const mapDispatchToProps = dispatch => ({
   updateClient: client => dispatch(editClient(client)),
 });
 
-export default connect(undefined, mapDispatchToProps)(AddClientModal);
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(AddClientModal);

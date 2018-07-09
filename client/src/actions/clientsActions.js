@@ -8,8 +8,13 @@ export const getClients = () => async dispatch => {
 
 export const addClient = client => async dispatch => {
   const res = await axios.post('/api/client', client);
-  console.log('DATA RES', res.data);
   dispatch({ type: ADD_CLIENT, payload: res.data });
+};
+
+export const editClient = client => async dispatch => {
+  const res = await axios.patch('/api/client', client);
+  console.log('edit action', res);
+  dispatch({ type: EDIT_CLIENT, payload: res.data });
 };
 
 export function removeClient(clientID) {
@@ -19,9 +24,9 @@ export function removeClient(clientID) {
   };
 }
 
-export function editClient(client) {
-  return {
-    type: EDIT_CLIENT,
-    client,
-  };
-}
+// export function editClient(client) {
+//   return {
+//     type: EDIT_CLIENT,
+//     client,
+//   };
+// }
