@@ -22,10 +22,3 @@ export function removeClient(clientID) {
     clientID,
   };
 }
-
-// export function editClient(client) {
-//   return {
-//     type: EDIT_CLIENT,
-//     client,
-//   };
-// }
