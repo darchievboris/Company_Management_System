@@ -41,7 +41,6 @@ class AddClientModal extends Component {
         client: {
           ...client,
           ...clientToEdit,
-          phone: clientToEdit.phone,
           start: new Date(clientToEdit.start),
           end: new Date(clientToEdit.end),
         },
@@ -181,9 +180,6 @@ class AddClientModal extends Component {
       ...prevState,
       client: {
         ...prevState.client,
-        // end: moment(prevState.client.start)
-        //   .add(value - 1, 'days')
-        //   .toDate(),
         jobLength: value,
       },
     }));
@@ -388,7 +384,7 @@ class AddClientModal extends Component {
                   value={client.addressTo.street}
                   onChange={(e, { value }) => this.setMovingToState('street', value)}
                   control={Input}
-                  label="Street Name"
+                  label=" Delivery Street"
                   placeholder="Street Name"
                   width={10}
                 />
@@ -428,7 +424,7 @@ class AddClientModal extends Component {
                 rows="2"
               />
 
-              {/* ******************************** Delivery ************************************ */}
+              {/* ******************************** Job notes ************************************ */}
               <Divider horizontal>
                 <Header color="blue">Additional Info</Header>
               </Divider>

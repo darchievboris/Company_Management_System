@@ -3,7 +3,7 @@ import { Accordion, Pagination } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import ClientListItem from '../clients/ClientListItem';
+import ClientListItem from "./ClientListItem";
 import ClientInfoModal from './ClientInfoModal';
 import AddClientModal from './AddClientModal';
 
@@ -18,9 +18,13 @@ class ClientsList extends Component {
   };
 
   onEditClick = client => this.setState({ openAddClientModal: true, client });
+
   onInfoClick = client => this.setState({ openClientInfoModal: true, client });
+
   onEditClient = client => this.setState({ openAddClientModal: true, client });
+
   closeAddClientModal = () => this.setState({ openAddClientModal: false });
+
   closeClientInfoModal = () => this.setState({ openClientInfoModal: false });
 
   handleClick = (e, titleProps) => {
@@ -42,7 +46,7 @@ class ClientsList extends Component {
           {clients[activeChunk] &&
             clients[activeChunk].map((client, i) => (
               <ClientListItem
-                key={client.id}
+                key={client._id}
                 client={client}
                 handleClick={this.handleClick}
                 index={i}

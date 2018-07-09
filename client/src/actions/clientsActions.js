@@ -13,7 +13,6 @@ export const addClient = client => async dispatch => {
 
 export const editClient = client => async dispatch => {
   const res = await axios.patch('/api/client', client);
-  console.log('edit action', res);
   dispatch({ type: EDIT_CLIENT, payload: res.data });
 };
 

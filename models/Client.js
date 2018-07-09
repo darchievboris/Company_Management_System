@@ -24,14 +24,14 @@ var ClientSchema = new Schema({
         street: String,
         city: String,
         state: String,
-        zip: Number,
+        zip: String,
         notes: String
     },
     addressTo:{
         street: String,
         city: String,
         state: String,
-        zip: Number,
+        zip: String,
         notes: String
     },
     added: {
