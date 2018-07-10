@@ -9,14 +9,22 @@ module.exports = app => {
     res.send(clients);
   });
 
-  app.patch('/api/client', requireLogin, async(req, res) => {
+  app.patch('/api/client', requireLogin, (req, res) => {
     console.log("ID", req.body);
     Client.findByIdAndUpdate(req.body._id, {$set:req.body}, {new: true}, (err, client) => {
       if (err) {
-        console.log(err);
         res.send(err)
       }
       res.send(client);
+    })
+  })
+
+  app.delete('/api/client/:id', (req,res)=> {
+    Client.findByIdAndRemove(req.params.id, err => {
+      if(err){
+        res.send(err);
+      }
+      res.status(200).send({message: "user deleted"})
     })
   })
 

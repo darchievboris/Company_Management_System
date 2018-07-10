@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Icon, Image, Accordion, Card, List, Divider, Popup, Label } from 'semantic-ui-react';
+import { Button, Icon, Image, Accordion, Card, List, Divider, Popup, Label, Confirm } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
@@ -7,10 +7,17 @@ import clientImg from '../../images/client2.png';
 import { removeClient, editClient } from '../../actions/clientsActions';
 
 class ClientListItem extends Component {
-  handleRemove = id => {
-    this.props.removeClient(id);
+  state = { openConfirm: false };
+
+  showConfirm = id => this.setState({ openConfirm: true, removeId: id });
+
+  confirmedRemove = () => {
+    this.props.removeClient(this.state.removeId);
     this.setState({ activeIndex: -1 });
+    this.setState({ openConfirm: false });
   };
+
+  cancelRemove = () => this.setState({ openConfirm: false });
 
   render() {
     const { client, index, handleClick, activeIndex, onEditClick, onInfoClick } = this.props;
@@ -56,7 +63,7 @@ class ClientListItem extends Component {
               color="red"
               circular
               icon="trash"
-              onClick={() => this.handleRemove(client.id)}
+              onClick={() => this.showConfirm(client._id)}
             />
             <Button
               floated="right"
@@ -135,6 +142,14 @@ class ClientListItem extends Component {
             </List>
           </Label>
         </Accordion.Content>
+
+        <Confirm
+          open={this.state.openConfirm}
+          size="tiny"
+          content={`Are you sure you want to delete: ${client.firstName} ${client.lastName}`}
+          onCancel={this.cancelRemove}
+          onConfirm={this.confirmedRemove}
+        />
       </div>
     );
   }

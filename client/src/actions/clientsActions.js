@@ -16,9 +16,14 @@ export const editClient = client => async dispatch => {
   dispatch({ type: EDIT_CLIENT, payload: res.data });
 };
 
-export function removeClient(clientID) {
-  return {
-    type: REMOVE_CLIENT,
-    clientID,
-  };
-}
+export const removeClient = clientId => dispatch => {
+  axios.delete(`/api/client/${clientId}`);
+  dispatch({ type: REMOVE_CLIENT, payload: clientId });
+};
+
+// export function removeClient(clientID) {
+//   return {
+//     type: REMOVE_CLIENT,
+//     clientID,
+//   };
+// }
