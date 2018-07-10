@@ -13,7 +13,7 @@ class ClientListItem extends Component {
   };
 
   render() {
-    const { client, key, index, handleClick, activeIndex, onEditClick, onInfoClick } = this.props;
+    const { client, index, handleClick, activeIndex, onEditClick, onInfoClick } = this.props;
     return (
       <div>
         <Accordion.Title index={index} onClick={handleClick}>

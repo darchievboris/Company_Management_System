@@ -23,4 +23,7 @@ App.propTypes = {
   store: PropTypes.object.isRequired,
 };
 
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions
+)(App);

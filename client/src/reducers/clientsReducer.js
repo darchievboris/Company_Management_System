@@ -9,10 +9,10 @@ export default function categoriesReducers(state = [], action) {
       return [...state, action.payload];
     }
     case clientActions.REMOVE_CLIENT: {
-      return state.filter(client => client.id !== action.clientID);
+      return state.filter(client => client._id !== action.clientID);
     }
     case clientActions.EDIT_CLIENT: {
-      return state.map(client => (client.id === action.payload.id ? { ...client, ...action.payload } : client));
+      return state.map(client => (client._id === action.payload._id ? { ...client, ...action.payload } : client));
     }
     default:
       return state;

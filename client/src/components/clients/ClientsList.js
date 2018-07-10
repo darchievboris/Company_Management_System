@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Accordion, Pagination } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-
-import ClientListItem from "./ClientListItem";
+import sortAndFilter from '../../utils/sortAndFilter';
+import ClientListItem from './ClientListItem';
 import ClientInfoModal from './ClientInfoModal';
 import AddClientModal from './AddClientModal';
 
@@ -89,7 +89,7 @@ class ClientsList extends Component {
 }
 
 const mapStateToProps = state => ({
-  clients: _.chunk(state.clients, 6),
+  clients: _.chunk(sortAndFilter(state.clients), 6),
 });
 
 export default connect(mapStateToProps)(ClientsList);

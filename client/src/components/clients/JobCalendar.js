@@ -37,6 +37,7 @@ class JobCalendar extends Component {
   };
 
   closeAddClientModal = () => this.setState({ openAddClientModal: false });
+
   closeClientInfoModal = () => this.setState({ openClientInfoModal: false });
 
   eventStyleGetter = event => {
@@ -97,12 +98,13 @@ JobCalendar.propTypes = {
   clients: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = state => ({
-  clients: state.clients,
-});
+const mapStateToProps = ({ clients }) => ({ clients });
 
 const mapDispatchToProps = dispatch => ({
   addNewClient: client => dispatch(addClient(client)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobCalendar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(JobCalendar);

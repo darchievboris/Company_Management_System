@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Image } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import NavBarSearch from './NavBarSearch';
 
 class NavBarBtn extends Component {
@@ -10,7 +9,7 @@ class NavBarBtn extends Component {
       case null:
         return;
       case false:
-        return <Menu.Item href="/auth/google">Login With Google</Menu.Item>;
+        return;
       default:
         return <Menu.Item href="/api/logout"> Logout</Menu.Item>;
     }
@@ -25,18 +24,17 @@ class NavBarBtn extends Component {
             <Icon name="sidebar" />
           </Menu.Item>
         </Menu.Menu>
-        <Menu.Item>{auth ? `Hello,  ${auth.name}` : ''}</Menu.Item>
-        <Menu.Menu position="right">
+        {auth && <Menu.Item>Hello, {auth.name}</Menu.Item>}
+        {auth && (
           <Menu.Menu position="right">
-            <div className="ui right aligned category search item search-field">
-              <div className="ui transparent icon ">
+            <Menu.Menu position="right">
+              <div className="item search-field">
                 <NavBarSearch />
               </div>
-              <div className="results" />
-            </div>
+            </Menu.Menu>
+            {this.renderContent()}
           </Menu.Menu>
-          {this.renderContent()}
-        </Menu.Menu>
+        )}
       </Menu>
     );
   }
