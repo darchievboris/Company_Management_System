@@ -20,10 +20,3 @@ export const removeClient = clientId => dispatch => {
   axios.delete(`/api/client/${clientId}`);
   dispatch({ type: REMOVE_CLIENT, payload: clientId });
 };
-
-// export function removeClient(clientID) {
-//   return {
-//     type: REMOVE_CLIENT,
-//     clientID,
-//   };
-// }
