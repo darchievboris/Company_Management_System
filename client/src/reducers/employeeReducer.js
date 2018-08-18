@@ -5,6 +5,9 @@ export default function employeeReducers(state = [], action) {
     case employeeActions.FETCH_EMPLOYEES: {
       return [...action.payload];
     }
+    case employeeActions.ADD_EMPLOYEE: {
+      return [...state, action.payload];
+    }
     default:
       return state;
   }

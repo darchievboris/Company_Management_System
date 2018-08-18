@@ -13,6 +13,10 @@ var ClientSchema = new Schema({
         type: String,
         trim: true
     },
+    employees: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Employee'
+    }],
     start: String,
     end: String,
     jobLength: Number,
@@ -41,5 +45,5 @@ var ClientSchema = new Schema({
     _user: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
- module.exports = mongoose.model("client", ClientSchema);
+ module.exports = mongoose.model("Client", ClientSchema);
 

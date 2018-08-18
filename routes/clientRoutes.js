@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 
-const Client = mongoose.model('client');
+const Client = mongoose.model('Client');
 
 module.exports = app => {
   app.get('/api/clients', requireLogin, async (req, res) => {

@@ -17,7 +17,10 @@ var EmployeeSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    clients: [Client],
+    clients: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Client'
+    }],
     active:{
         type: Boolean,
         default: true
@@ -35,8 +38,6 @@ var EmployeeSchema = new Schema({
         default: 0
     },
     phone: String,
-    comments: String,
-    tip: Number,
     ssn: Number,
     email: {
         type: String,
@@ -49,5 +50,5 @@ var EmployeeSchema = new Schema({
     _user: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
-module.exports = mongoose.model("employee", EmployeeSchema);
+module.exports = mongoose.model("Employee", EmployeeSchema);
 

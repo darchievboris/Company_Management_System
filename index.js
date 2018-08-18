@@ -7,6 +7,7 @@ const keys = require('./config/keys');
 
 require('./models/User');
 require('./models/Client');
+require('./models/Employee');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -25,6 +26,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/clientRoutes')(app);
+require('./routes/employeeRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
   const path = require('path');

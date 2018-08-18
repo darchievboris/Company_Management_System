@@ -11,6 +11,7 @@ import RequireAuth from '../utils/RequireAuth';
 
 import NavBar from '../components/nav_bar/NavBar';
 import NewEmployeeForm from '../components/employee/NewEmployeeForm';
+import EmployeeInfo from '../components/employee/EmployeeInfo';
 
 const AppRouter = ({ auth }) => (
   <div>
@@ -22,6 +23,7 @@ const AppRouter = ({ auth }) => (
             <Route exact path="/clients" component={RequireAuth(ClientBoard)} />)} />
             <Route exact path="/employee" component={EmployeeBoard} />)} />
             <Route exact path="/employee/new" component={NewEmployeeForm} />)} />
+            <Route exact path="/employee/:id" component={EmployeeInfo} />)} />
             <Route path="*" component={NotFoundPage} />
           </Switch>
         </NavBar>
